@@ -18,7 +18,7 @@ function App() {
 
 
     React.useEffect(()=> {
-        setTotalPrice(cartItems.reduce((totalPrice, item)=>totalPrice+(item.price*item.quantity),0))
+        setTotalPrice(cartItems.reduce((totalPrice, item)=>totalPrice+((item.price-item.price*item.discountPercentage/100)*item.quantity),0).toFixed(2))
         setTotalQuantity(cartItems.reduce((totalQuantity, item)=>totalQuantity+item.quantity,0))
     }
     , [cartItems])

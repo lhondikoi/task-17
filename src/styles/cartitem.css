@@ -1,0 +1,75 @@
+.cart-item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 0.5fr;
+    gap: 20px;
+    width: 800px;
+    height: 200px;
+}
+
+.item-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+}
+
+.item-title, .item-description {
+    margin-bottom: 5px;
+}
+
+.cart-item-middle, .cart-item-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item-right {
+    align-items: stretch;
+}
+
+.item-quantity-box {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+
+.item-quantity-change {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: none;
+    background: #333;
+    color: #fff;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.item-quantity {
+    padding: 0 25px;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 1.2em;
+    background: #ddd;
+    border-radius: 5px;
+}
+
+.btn {
+    padding: 8px;
+    font-size: 1em;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[class*="cart"] {
+    margin-bottom: 10px;
+}
+
+.subtotal {
+    font-size: 1.2em;
+}

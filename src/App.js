@@ -1,8 +1,9 @@
 import React from 'react'
 
-import CartItem from './components/cartitem.js'
+import Cart from './components/cart.js'
 import { products } from './data/products.js'
 import { CartContext } from './Contexts.js'
+import './styles/app.css'
 
 
 function App() {
@@ -36,23 +37,23 @@ function App() {
     }
     
     return (
-        <CartContext.Provider value={{removeFromCart, changeQuantity}}>
-            <>
-                <h1>Shopping cart with Context API</h1>
-                <div className="cart">
-                    {cartItems.map((cartitem)=>{
-                        return (
-                            <CartItem 
-                                key={cartitem.id}
-                                {...cartitem}
-                            />
-                    )})}
+        <CartContext.Provider value={{removeFromCart, changeQuantity, cartItems}}>
+            <div className="container">
+                <h1 className="title"><i className="bi bi-cart"></i> Shopping cart with Context API</h1>
+                <div className="cart-container">
+                    {
+                        cartItems.length !== 0 ?
+                        <>
+                        <Cart />
+                        <div className="totals-container">
+                            <span className="totals"><span className="helper-text">Items in cart:</span><strong>{totalQuantity}</strong></span>                    
+                            <span className="totals"><span className="helper-text">Total:</span><strong>${totalPrice}</strong></span>
+                        </div>
+                        </> :
+                        <p style={{textAlign: "center", width: "100%"}}>You have no items in your cart!</p>
+                    }
                 </div>
-                <div className="total">
-                    <span>Total Price: {totalPrice}</span>
-                    <span>Total Quantity: {totalQuantity}</span>                    
-                </div>
-            </>
+            </div>
         </CartContext.Provider>
     )
 }
